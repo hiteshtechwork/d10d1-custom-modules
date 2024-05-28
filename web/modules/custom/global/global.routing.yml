@@ -1,0 +1,7 @@
+global.form:
+  path: "/global/form"
+  defaults:
+    _form: '\Drupal\global\Form\GlobalForm'
+    _title: "Global Form"
+  requirements:
+    _permission: "access content"

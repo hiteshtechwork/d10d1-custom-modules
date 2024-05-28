@@ -1,0 +1,6 @@
+name: "Global"
+type: module
+description: "Defines global variables and functionality for the site."
+core_version_requirement: ^8 || ^9 || ^10
+package: Custom
+version: 1.0

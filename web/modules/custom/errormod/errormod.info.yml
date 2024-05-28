@@ -1,0 +1,6 @@
+name: Error Mod
+type: module
+core_version_requirement: ^10
+package: custom
+dependencies:
+  - drupal:user

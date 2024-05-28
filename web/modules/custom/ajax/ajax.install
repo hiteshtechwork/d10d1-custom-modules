@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+
+function ajax_schema()
+{
+    $schema['ajax_data'] = [
+        'description' => 'Stores custom form submission data.',
+        'fields' => [
+            'id' => [
+                'type' => 'serial',
+                'description' => 'Primary Key: Unique ID for the form submission.',
+                'unsigned' => true,
+                'not null' => true,
+            ],
+            'name' => [
+                'type' => 'varchar',
+                'length' => 255,
+                'description' => 'Name of the submitter.',
+                'not null' => true,
+            ],
+            'email' => [
+                'type' => 'varchar',
+                'length' => 255,
+                'description' => 'Email of the submitter.',
+                'not null' => true,
+            ],
+            'phone' => [
+                'type' => 'varchar',
+                'length' => 10,
+                'description' => 'Phone number of the submitter.',
+                'not null' => true,
+            ],
+        ],
+        'primary key' => ['id'],
+    ];
+
+    return $schema;
+}

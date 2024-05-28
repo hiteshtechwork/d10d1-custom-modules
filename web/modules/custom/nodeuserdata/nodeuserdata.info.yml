@@ -1,0 +1,5 @@
+name: "Node User Data"
+type: module
+description: "Custom module to retrieve node and user data."
+core_version_requirement: ^8 || ^9 ||^10
+package: Custom

@@ -1,0 +1,4 @@
+services:
+  nodeuserdata.data_service:
+    class: Drupal\nodeuserdata\DataService
+    arguments: ["@entity_type.manager"]

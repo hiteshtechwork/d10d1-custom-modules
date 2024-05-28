@@ -1,0 +1,5 @@
+name: Ajax custom Module
+type: module
+description: ajax custom module description
+core_version_requirement: ^9 || ^10
+package: Custom

@@ -1,0 +1,6 @@
+# my_module.libraries.yml
+my-custom-styles:
+  version: 1.x
+  css:
+    theme:
+      css/errormod.css: {}

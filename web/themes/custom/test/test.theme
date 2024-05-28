@@ -1,0 +1,50 @@
+<?php
+/**
+ * Implements hook_html_head_alter().
+ */
+// function test_html_head_alter(&$head_elements)
+// {
+//     // Remove meta tag that displays the Drupal version.
+//     var_dump($head_elements);
+//     exit;
+//     // unset($head_elements['system_meta_generator']);
+// }
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function test_page_attachments_alter(array &$attachments)
+{
+    // echo "<pre>";
+    // var_dump($attachments);
+    // echo "</pre>";
+    // exit();
+
+    // Check if the generator meta tag exists in page attachments.
+    if (isset($attachments['#attached']['html_head'])) {
+        foreach ($attachments['#attached']['html_head'] as $key => $element) {
+            // Search for the generator meta tag by its name.
+            if (isset($element[0]['#tag']) && $element[0]['#tag'] === 'meta' && isset($element[0]['#attributes']['name']) && $element[0]['#attributes']['name'] === 'Generator') {
+                // Remove the generator meta tag.
+                unset($attachments['#attached']['html_head'][$key]);
+            }
+        }
+    }
+}
+
+// function test_page_attachments_alter(array &$attachments)
+// {
+//     var_dump($attachments);
+//     exit();
+//     // Check if the generator meta tag exists.
+//     if (isset($attachments['#attached']['html_head'])) {
+//         // Loop through each HTML head element.
+//         foreach ($attachments['#attached']['html_head'] as $key => $element) {
+//             // Check if this element is the generator meta tag.
+//             if (isset($element[0]['#tag']) && $element[0]['#tag'] === 'meta' && isset($element[0]['#attributes']['name']) && $element[0]['#attributes']['name'] === 'Generator') {
+//                 // Remove the generator meta tag.
+//                 unset($attachments['#attached']['html_head'][$key]);
+//             }
+//         }
+//     }
+// }

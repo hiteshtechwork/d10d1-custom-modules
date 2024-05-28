@@ -1,0 +1,7 @@
+nodeuserdata.nodeuserdata_controller:
+  path: "/nodeuserdata/get-data"
+  defaults:
+    _controller: '\Drupal\nodeuserdata\Controller\NodeUserDataController::getNodeUserData'
+    _title: "Node and User Data"
+  requirements:
+    _permission: "access content"

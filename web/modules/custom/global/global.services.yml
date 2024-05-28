@@ -1,0 +1,4 @@
+services:
+  global.common_services:
+    class: Drupal\global\CommonServices
+    arguments: ["@settings"]

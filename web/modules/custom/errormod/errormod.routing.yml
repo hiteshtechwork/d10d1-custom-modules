@@ -1,0 +1,6 @@
+errormod.404:
+  path: "/system/404"
+  defaults:
+    _controller: '\Drupal\errormod\Controller\Http4xxController:on404'
+  requirements:
+    _access: "TRUE"

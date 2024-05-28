@@ -1,0 +1,7 @@
+ajax.ajax_add_form:
+  path: "/ajax/add"
+  defaults:
+    _form: '\Drupal\ajax\Form\AjaxAddForm'
+    _title: "Ajax Add Form"
+  requirements:
+    _permission: "access content"

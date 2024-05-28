@@ -1,0 +1,117 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\node\Entity\NodeType;
+
+/**
+ * Implements hook_install().
+ */
+function global_install()
+{
+    // Create a new content type.
+    $type = NodeType::create([
+        'type' => 'test_content',
+        'name' => 'Test Content',
+        'description' => 'This is a custom content type for testing.',
+        'preview_mode' => 'disabled',
+        'display_submitted' => false,
+    ]);
+    $type->save();
+
+    // Create field storage for 'name'.
+    $field_storage_name = FieldStorageConfig::create([
+        'entity_type' => 'node',
+        'field_name' => 'field_name1',
+        'type' => 'string',
+        'cardinality' => 1,
+    ]);
+    $field_storage_name->save();
+
+    // Create field storage for 'email'.
+    $field_storage_email = FieldStorageConfig::create([
+        'entity_type' => 'node',
+        'field_name' => 'field_email1',
+        'type' => 'email',
+        'cardinality' => 1,
+    ]);
+    $field_storage_email->save();
+
+    // Attach 'name' field to the content type.
+    FieldConfig::create([
+        'field_storage' => $field_storage_name,
+        'bundle' => 'test_content',
+        'label' => 'Name',
+        'entity_type' => 'node',
+        'required' => true,
+    ])->save();
+
+    // Attach 'email' field to the content type.
+    FieldConfig::create([
+        'field_storage' => $field_storage_email,
+        'bundle' => 'test_content',
+        'label' => 'Email',
+        'entity_type' => 'node',
+        'required' => true,
+    ])->save();
+}
+
+// use Drupal\taxonomy\Entity\Term;
+// use Drupal\taxonomy\Entity\Vocabulary;
+
+// /**
+//  * Implements hook_install().
+//  */
+// function my_module_install()
+// {
+//     // Create a new taxonomy vocabulary.
+//     $vocabulary = Vocabulary::create([
+//         'vid' => 'custom_categories',
+//         'name' => 'Custom Categories',
+//         'description' => 'This is a custom vocabulary for categorizing content.',
+//     ]);
+//     $vocabulary->save();
+
+//     // Create taxonomy terms.
+//     $terms = [
+//         ['name' => 'Term 1', 'description' => 'Description for Term 1'],
+//         ['name' => 'Term 2', 'description' => 'Description for Term 2'],
+//         ['name' => 'Term 3', 'description' => 'Description for Term 3'],
+//     ];
+//     foreach ($terms as $term_data) {
+//         $term = Term::create([
+//             'name' => $term_data['name'],
+//             'vid' => $vocabulary->id(),
+//             'description' => $term_data['description'],
+//         ]);
+//         $term->save();
+//     }
+// }
+
+/**
+ * @file
+ * Contains custom PHP code for the Global module.
+ */
+
+/**
+ * Implements hook_init().
+ */
+
+// function global_init($is_syncing)
+// {
+//     $state = \Drupal::state();
+//     $state->set('my_global_variable', 'API_HITESH_KEY');
+
+// }
+
+// /**
+//  * Implements hook_install().
+//  */
+// function global_install($is_syncing)
+// {
+//     $state = \Drupal::state();
+//     $state->set('my_global_variable', 'API_HITESH_KEY');
+// }
